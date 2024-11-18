@@ -11,7 +11,6 @@ transform right:
 
 transform spin:
     rotate 0
-    linear 0.0 rotate 30
     block:
         linear 2 rotate 360
         linear 0.0 rotate -360
@@ -29,7 +28,7 @@ transform scale:
     
 
 init:
-    image white = AlphaMask(Solid("#FFFFFF"), Solid("#800000"))
+    image white = Solid("#FFFFFF")
 
     image rain:
         "rain/rain1.png"
@@ -55,7 +54,7 @@ label scene1:
     scene white
     # TODO звук: молния
 
-    $ renpy.pause(0.5)
+    pause 0.5
 
     scene bg forest_with_castle
     show rain
@@ -82,13 +81,28 @@ label scene1:
         ypos 0.5
         anchor (0.5, 0.5)
     
-    $ renpy.pause(0.7)
+    pause 0.7
 
     hide portal at scale, spin
+    hide wizard with easeoutright
     hide dobrinya with Dissolve(0.2)
 
-    hide wizard with easeoutright
+    jump scene2
 
-    $ renpy.pause()
-    
+label scene2:
+    scene black
+    show portal at spin, truecenter
+    with dissolve
+    pause
 
+    show dobrinya at center
+    with dissolve
+
+    mc "Что за чертовщина?!"
+
+    scene white with Dissolve(3)
+
+    # TODO звук: удар
+    scene black with vpunch
+
+    pause
