@@ -106,3 +106,18 @@ label scene2:
     scene black with vpunch
 
     pause
+
+    jump scene3
+
+label scene3:
+    centered"{cps=2}{size=200}...{/size}{/cps}"
+
+    # TODO: Эффект открытия глаз
+
+    scene bg crouded_street
+    with dissolve
+
+    "Пешеход" "Эй, мужик, ты как тут оказался?"
+    mc "Где я? Что за странные строения? Куда подевались леса и поля?"
+
+    pause
